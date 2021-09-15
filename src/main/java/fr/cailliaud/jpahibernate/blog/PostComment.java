@@ -20,6 +20,9 @@ public class PostComment {
   @Column(name = "id", nullable = false)
   private Long id;
 
+  @Column(columnDefinition = "CLOB NOT NULL")
+  private String text;
+
   @ManyToOne
   @JoinColumn(name = "post_ID")
   private Post post;

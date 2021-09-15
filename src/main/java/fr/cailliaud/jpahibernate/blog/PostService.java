@@ -23,4 +23,12 @@ public class PostService {
   public Post getPost(Long id) {
     return postRepository.findById(id).orElseThrow();
   }
+
+  @Transactional
+  public void ajouterComment(Long postId, String content) {
+    Post post = postRepository.findById(postId).orElseThrow();
+    PostComment postComment = new PostComment();
+    postComment.setText(content);
+    post.addComment(postComment);
+  }
 }

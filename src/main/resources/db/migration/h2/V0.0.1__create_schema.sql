@@ -31,6 +31,7 @@ create table post_comment
 (
     id      bigint not null,
     post_id bigint not null,
+    text    text   not null,
     primary key (id),
     foreign key (post_id) references post (id)
 );

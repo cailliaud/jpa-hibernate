@@ -25,4 +25,10 @@ public class Post {
 
   @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<PostComment> comments = new ArrayList<>();
+
+  public Post addComment(PostComment comment) {
+    comment.setPost(this);
+    comments.add(comment);
+    return this;
+  }
 }
